@@ -1,50 +1,130 @@
-# React + TypeScript + Vite
+**Authify UI** is a lightweight and customizable React component library that provides pre-built, responsive sign-in and sign-up pages. Designed with Tailwind CSS, it enables developers to quickly integrate beautiful, user-friendly authentication interfaces into their applications. Ideal for projects requiring a seamless and modern UI for authentication workflows.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Pre-built UI Components**: Ready-to-use `SignIn` and `SignUp` components.
+- **Tailwind CSS**: Fully responsive and customizable using Tailwind.
+- **Ease of Integration**: Simple and straightforward API for seamless integration.
+- **Modular Design**: Use only the components you need.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
+To install the package, use the following command:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+```bash
+npm install authify-ui
+```
+
+Or, if you use Yarn:
+
+```bash
+yarn add authify-ui
+```
+
+---
+
+## Usage
+
+### Basic Example
+
+```tsx
+import React from "react";
+import { SignIn, SignUp } from "authify-ui";
+
+const App = () => {
+  return (
+    <div>
+      <h1>Welcome to Authify UI</h1>
+      <SignIn />
+      <SignUp />
+    </div>
+  );
+};
+
+export default App;
+```
+
+---
+
+## Components
+
+### `SignIn`
+
+The `SignIn` component renders a pre-designed login form.
+
+#### Props
+
+| Prop Name  | Type       | Description                  |
+| ---------- | ---------- | ---------------------------- |
+| `onSubmit` | `function` | Callback for form submission |
+
+#### Example
+
+```tsx
+<SignIn onSubmit={(data) => console.log(data)} />
+```
+
+### `SignUp`
+
+The `SignUp` component renders a pre-designed registration form.
+
+#### Props
+
+| Prop Name  | Type       | Description                  |
+| ---------- | ---------- | ---------------------------- |
+| `onSubmit` | `function` | Callback for form submission |
+
+#### Example
+
+```tsx
+<SignUp onSubmit={(data) => console.log(data)} />
+```
+
+---
+
+## Customization
+
+### Tailwind CSS
+
+Authify UI uses Tailwind CSS classes for styling. You can override the default styles by customizing your Tailwind configuration.
+
+#### Example
+
+```css
+/* tailwind.config.js */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#4CAF50",
+      },
     },
   },
-})
+};
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Contributing
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Contributions are welcome! If you’d like to contribute, please fork the repository and create a pull request.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Support
+
+For issues and feature requests, please open a ticket on the [GitHub Issues](https://github.com/unveiled-labs/authify-ui/issues) page.
+
+---
+
+Happy coding! 🚀
